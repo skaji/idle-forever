@@ -18,7 +18,7 @@ jobs:
           make
           mkdir idle-forever-linux-amd64
           mv idle-forever idle-forever-linux-amd64
-          tar czf idle-forever-linux-amd64.tar.gz idle-forever-linux-amd64
+          tar --owner=0 --group=0 --numeric-owner -czf idle-forever-linux-amd64.tar.gz idle-forever-linux-amd64
       - uses: actions/upload-artifact@v6
         with:
           name: idle-forever-linux-amd64
@@ -31,7 +31,7 @@ jobs:
           make
           mkdir idle-forever-linux-arm64
           mv idle-forever idle-forever-linux-arm64
-          tar czf idle-forever-linux-arm64.tar.gz idle-forever-linux-arm64
+          tar --owner=0 --group=0 --numeric-owner -czf idle-forever-linux-arm64.tar.gz idle-forever-linux-arm64
       - uses: actions/upload-artifact@v6
         with:
           name: idle-forever-linux-arm64
