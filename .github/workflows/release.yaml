@@ -50,8 +50,6 @@ jobs:
         with:
           name: idle-forever-linux-arm64
       - name: create release and upload release assets
-        run: |
-          find . -ls
-          gh release create --repo ${{ github.repository }} ${{ github.ref }} idle-forever-linux-amd64/idle-forever-linux-amd64.tar.gz idle-forever-linux-arm64/idle-forever-linux-arm64.tar.gz
+        run: gh release create --repo ${{ github.repository }} ${{ github.ref }} idle-forever-linux-amd64.tar.gz idle-forever-linux-arm64.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
