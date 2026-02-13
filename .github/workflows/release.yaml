@@ -14,11 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - run: |
-          make
-          mkdir idle-forever-linux-amd64
-          mv idle-forever idle-forever-linux-amd64
-          tar --owner=0 --group=0 --numeric-owner -czf idle-forever-linux-amd64.tar.gz idle-forever-linux-amd64
+      - run: docker build -o . -f maint/Dockerfile .
       - uses: actions/upload-artifact@v6
         with:
           name: idle-forever-linux-amd64
@@ -27,11 +23,7 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v6
-      - run: |
-          make
-          mkdir idle-forever-linux-arm64
-          mv idle-forever idle-forever-linux-arm64
-          tar --owner=0 --group=0 --numeric-owner -czf idle-forever-linux-arm64.tar.gz idle-forever-linux-arm64
+      - run: docker build -o . -f maint/Dockerfile .
       - uses: actions/upload-artifact@v6
         with:
           name: idle-forever-linux-arm64
